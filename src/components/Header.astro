@@ -43,7 +43,7 @@
 </header>
 
 <script>
-
+  // Selecciona todos los enlaces dentro del menú
   const links = document.querySelectorAll('nav ul a');
 
   // Para cada enlace, agrega un controlador de eventos de clic
@@ -52,8 +52,11 @@
       // Selecciona el checkbox mobile-menu
       const checkbox = document.getElementById('mobile-menu');
 
-      // Cambia el estado del checkbox a no marcado
-      checkbox.checked = false;
+      // Verifica si el elemento seleccionado es un HTMLInputElement
+      if (checkbox instanceof HTMLInputElement) {
+        // Cambia el estado del checkbox a no marcado
+        checkbox.checked = false;
+      }
     });
   });
 </script>
