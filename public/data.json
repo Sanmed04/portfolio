@@ -1,0 +1,19 @@
+{
+    "projects": [
+        {
+           "image": "portfolioAmana.jpg",
+           "alt": "Amana",
+           "href": "www.amana.com.ar",
+           "title" : "eCommerce",
+           "technologies" : [{"name": "html"}, {"name": "css"}, {"name": "js"}, {"name": "php"}, {"name": "bootstrap"}, {"name": "sql"}]
+
+        },
+        {
+            "image": "logisticaLanding.webp",
+            "alt": "Logistica Landing",
+            "href": "www.logisticaLanding.com.ar",
+            "title" : "Landing",
+            "technologies" : [{"name": "html"}, {"name": "css"}, {"name": "js"}, {"name": "tailwind"}, {"name": "astro"}]
+         }
+    ]
+}

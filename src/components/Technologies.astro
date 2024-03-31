@@ -1,0 +1,13 @@
+---
+// Recibe las tecnologías como una prop
+const { technologies } = Astro.props;
+---
+
+{technologies.map((tech: any) => (
+    <div class="flex items-center gap-1 bg-slate-700 rounded-2xl px-2 py-1">
+      <img src={`/images/${tech.name}.png`} alt={tech.name} class=" h-4"/>
+      <span class="text-xs uppercase">{tech.name}</span>
+    </div>
+  ))}
+
+  

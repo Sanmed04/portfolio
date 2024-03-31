@@ -1,16 +1,26 @@
 ---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import Head from '../components/Head.astro'
+import RecentProjects from '../components/RecentProjects.astro'
+import Tecnologias from '../components/Tecnologias.astro'
+import AboutMe from '../components/AboutMe.astro'
+import Contacto from '../components/Contacto.astro'
 
+import "@fontsource/poppins";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
+<html class="scroll-smooth" lang="en">
+	<Head/>
+	<body class="font-poppins">
+		<Header />
+		<main class="h-full flex flex-col gap-16 mb-12 mt-6">
+			<AboutMe/>
+			<Tecnologias/>
+			<RecentProjects />
+			<Contacto/>
+		</main>
+		
+		<Footer />
 	</body>
 </html>
