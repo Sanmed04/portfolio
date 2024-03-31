@@ -41,3 +41,19 @@
     </div>
   </label>
 </header>
+
+<script>
+
+  const links = document.querySelectorAll('nav ul a');
+
+  // Para cada enlace, agrega un controlador de eventos de clic
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      // Selecciona el checkbox mobile-menu
+      const checkbox = document.getElementById('mobile-menu');
+
+      // Cambia el estado del checkbox a no marcado
+      checkbox.checked = false;
+    });
+  });
+</script>

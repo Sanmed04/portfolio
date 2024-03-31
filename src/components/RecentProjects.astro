@@ -4,19 +4,21 @@ import JSON from "../../public/data.json";
 ---
 
 <section class="p-6" id="proyectos">
-  <h2 class="font-semibold text-center text-3xl pb-8 ">Proyectos recientes</h2>
-  <div class="flex flex-col gap-4 w-fit">
-    {
-      JSON.projects.map((project, index) => (
-        <CardProjects
-          key={index}
-          image={project.image}
-          alt={project.alt}
-          href={project.href}
-          title={project.title}
-          technologies={project.technologies}
-        />
-      ))
-    }
+  <h2 class="font-semibold text-center text-3xl pb-8">Proyectos recientes</h2>
+  <div class="flex justify-center items-center">
+    <div class="flex flex-col gap-4 w-fit">
+      {
+        JSON.projects.map((project, index) => (
+          <CardProjects
+            key={index}
+            image={project.image}
+            alt={project.alt}
+            href={project.href}
+            title={project.title}
+            technologies={project.technologies}
+          />
+        ))
+      }
+    </div>
   </div>
 </section>
