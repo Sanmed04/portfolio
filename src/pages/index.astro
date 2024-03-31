@@ -9,6 +9,7 @@ import Contacto from '../components/Contacto.astro'
 
 import "@fontsource/poppins";
 ---
+<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
 <html class="scroll-smooth" lang="en">
 	<Head/>
@@ -20,7 +21,8 @@ import "@fontsource/poppins";
 			<RecentProjects />
 			<Contacto/>
 		</main>
-		
+		<div id="toast-container"></div>
 		<Footer />
 	</body>
 </html>
+

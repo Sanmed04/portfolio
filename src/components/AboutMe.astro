@@ -1,24 +1,29 @@
 ---
-import IconsRedes from './IconsRedes.astro'
+import IconsRedes from "./IconsRedes.astro";
 ---
+
+<script type="module"></script>
 
 <section class="p-6 flex flex-col gap-8" id="sobreMi">
   <hr />
-    <div class="flex flex-col gap-2">
-        <h1 class="font-bold text-4xl text-center">Santiago Medina</h1>
-        <h2 class="font-semibold w-1/2 text-end">Desarrollador Web</h2>
-        <div class="flex gap-6 items-center justify-center mt-2 mb-6"><IconsRedes /></div> 
-      </div>
+  <div class="flex flex-col gap-2">
+    <h1 class="font-bold text-4xl text-center">Santiago Medina</h1>
+    <h2 class="font-semibold w-1/2 text-end">Desarrollador Web</h2>
+    <div class="flex gap-6 items-center justify-center mt-2 mb-6">
+      <IconsRedes />
+    </div>
+  </div>
 
-  
-  
   <div class="flex flex-col justify-center items-center gap-16">
     <p class="text-justify">
       Estudiante de Analísta de Sistemas, en búsqueda de oportunidades que me
       permitan crecer profesionalmente y expandir mis conocimientos
     </p>
-    <a href="/portfolio/public/docs/cvSantiagoMedina.pdf
-    " download="cvSantiagoMedina.pdf" class="hover:scale-125 transform transition duration-300 ease-in-out "
+    <a
+      href="/portfolio/public/docs/cvSantiagoMedina.pdf"
+      download="cvSantiagoMedina.pdf"
+      class="hover:scale-125 transform transition duration-300 ease-in-out"
+      id="downloadPortfolio"
       ><img
         width="70"
         height="70"
@@ -29,3 +34,23 @@ import IconsRedes from './IconsRedes.astro'
   </div>
   <hr />
 </section>
+<script type="module">
+  function showToast() {
+    const toast = document.createElement('div');
+    toast.textContent = 'Descargando CV...';
+    toast.style.position = 'fixed';
+    toast.style.top = '76px';
+    toast.style.right = '20px';
+    toast.style.padding = '10px';
+    toast.style.background = '#1E293B';
+    toast.classList.add('rounded-md');
+    toast.style.color = 'white';
+    toast.style.zIndex = '1000';
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      document.body.removeChild(toast);
+    }, 3000);
+  }
+  const downloadPortfolio = document.querySelector("#downloadPortfolio");
+  downloadPortfolio.addEventListener("click", showToast);
+</script>
