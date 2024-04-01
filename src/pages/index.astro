@@ -9,19 +9,17 @@ import Contacto from '../components/Contacto.astro'
 
 import "@fontsource/poppins";
 ---
-<script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
 <html class="scroll-smooth" lang="en">
 	<Head/>
-	<body class="font-poppins">
-		<Header />
-		<main class="h-full flex flex-col gap-16 mb-12 mt-6">
+	<body class="font-poppins" id="sobreMi">
+		<Header/>
+		<main class="h-full flex flex-col gap-16 mb-20 mt-6">
 			<AboutMe/>
 			<Tecnologias/>
-			<RecentProjects />
+			<RecentProjects/>
 			<Contacto/>
 		</main>
-		<Footer />
+		<Footer/>
 	</body>
 </html>
 
