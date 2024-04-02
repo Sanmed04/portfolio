@@ -1,11 +1,11 @@
 ---
-const { image, alt, href, title, technologies } = Astro.props;
+const { image, alt, href, title, technologies, animation } = Astro.props;
 import Technologies from "./Technologies.astro";
 ---
 
 <a
   href={href}
-  class="min-h-44 max-h-52 flex flex-col justify-center rounded-2xl border px-4 gap-2 bg-slate-800 text-white max-w-[450px] py-3"
+  class={`min-h-44 max-h-52 flex flex-col justify-center rounded-2xl border px-4 gap-2 bg-slate-800 text-white max-w-[450px] py-3 hover:scale-105 transition-transform duration-300 ease-in-out reveal ${animation}`}
   target="_blank"
 >
   <div class="flex">
@@ -44,3 +44,72 @@ import Technologies from "./Technologies.astro";
     </div>
   </div>
 </a>
+
+<style>
+.reveal {
+  position: relative;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@keyframes leftToRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.left-to-right {
+  animation: leftToRight 1s forwards;
+}
+
+.right-to-left {
+  animation: rightToLeft 1s forwards;
+}
+</style>
+
+
+<script>
+  function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 90;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.remove('left-to-right', 'right-to-left');
+      reveals[i].classList.add("active");
+      reveals[i].classList.add(i % 2 === 0 ? 'left-to-right' : 'right-to-left');
+    } else {
+      reveals[i].classList.remove("active");
+      reveals[i].classList.remove('left-to-right', 'right-to-left');
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
+
+</script>

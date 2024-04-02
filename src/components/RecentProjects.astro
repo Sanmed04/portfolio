@@ -16,9 +16,14 @@ import JSON from "../../public/data.json";
             href={project.href}
             title={project.title}
             technologies={project.technologies}
+            animation={index % 2 === 0 ? 'left-to-right' : 'right-to-left'}
+          
+
           />
         ))
       }
     </div>
   </div>
 </section>
+
+
