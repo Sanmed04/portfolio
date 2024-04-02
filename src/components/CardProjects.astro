@@ -5,7 +5,7 @@ import Technologies from "./Technologies.astro";
 
 <a
   href={href}
-  class={`min-h-44 max-h-52 flex flex-col justify-center rounded-2xl border px-4 gap-2 bg-slate-800 text-white max-w-[450px] py-3 hover:scale-105 transition-transform duration-300 ease-in-out reveal ${animation}`}
+  class={`min-h-44 max-h-52 flex flex-col justify-center rounded-2xl border px-4 gap-2 bg-slate-800 text-white max-w-[450px] py-3  reveal ${animation}`}
   target="_blank"
 >
   <div class="flex">
@@ -33,7 +33,7 @@ import Technologies from "./Technologies.astro";
         <img
           src={`/images/${image}`}
           alt={alt}
-          class="overflow-hidden h-auto w-full max-h-36"
+          class="overflow-hidden h-auto w-full max-h-36 "
         />
       </div>
     </div>
@@ -80,12 +80,28 @@ import Technologies from "./Technologies.astro";
   }
 }
 
+@keyframes hoverEffect {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0) scale(1.05);
+  }
+}
+
 .left-to-right {
   animation: leftToRight 1s forwards;
+  transition: transform 1s ease-in-out;
 }
 
 .right-to-left {
   animation: rightToLeft 1s forwards;
+  transition: transform 1s ease-in-out;
+}
+
+.left-to-right:hover,
+.right-to-left:hover {
+  transform: translateX(0) scale(1.01) !important;
 }
 </style>
 
