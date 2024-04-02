@@ -6,16 +6,17 @@
   <div class="flex justify-center items-center reveal-section">
     <form
       class="bg-slate-800 w-full max-w-[640px] text-slate-200 px-12 py-6 rounded-3xl gap-6 flex flex-col"
+      action="https://formsubmit.co/santiagomedina111204@gmail.com" method="POST"
     >
       <h3 class="font-semibold text-center text-2xl text-slate-50">
         Solicita tu presupuesto
       </h3>
       <div class="flex flex-col gap-2">
-        <label for="nombre">Nombre:</label>
+        <label for="name">Nombre:</label>
         <input
           type="text"
-          id="nombre"
-          name="nombre"
+          id="name"
+          name="name"
           class="h-10 text-black ps-2 rounded bg-slate-100"
           required
         />
@@ -41,17 +42,17 @@
         />
       </div>
       <div class="flex flex-col gap-2" id="contacto">
-        <label for="mensaje">Mensaje:</label>
+        <label for="message">Mensaje:</label>
         <textarea
-          id="mensaje"
-          name="mensaje"
+          id="message"
+          name="message"
           class="h-10 text-black ps-2 pt-2 min-h-10 max-h-32 rounded bg-slate-100"
           required></textarea>
       </div>
       <div class="flex justify-center items-center">
         <button
           class="bg-slate-700 rounded-3xl w-fit px-6 py-2 hover:bg-slate-600"
-          type="submit">Enviar</button
+          type="submit" >Enviar</button
         >
       </div>
     </form>
@@ -105,5 +106,4 @@
   }
 
   window.addEventListener("scroll", reveal);
-
 </script>
