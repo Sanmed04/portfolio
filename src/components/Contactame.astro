@@ -1,0 +1,134 @@
+---
+
+---
+
+<section class="p-6">
+  <div class="flex justify-center items-center reveal-section">
+    <form
+      class="bg-slate-800 w-full max-w-[640px] text-slate-200 px-12 py-6 rounded-3xl gap-6 flex flex-col"
+      action="./sendmail.php"
+      method="POST"
+    >
+      <h3 class="font-semibold text-center text-2xl text-slate-50">
+        Solicita tu presupuesto
+      </h3>
+      <div class="flex flex-col gap-2">
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          class="h-10 text-black ps-2 rounded bg-slate-100"
+          required
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="h-10 text-black ps-2 rounded bg-slate-100"
+          required
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="subject">Asunto:</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          class="h-10 text-black ps-2 rounded bg-slate-100"
+          required
+        />
+      </div>
+      <div class="flex flex-col gap-2" id="contacto">
+        <label for="mensaje">Mensaje:</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          class="h-10 text-black ps-2 pt-2 min-h-10 max-h-32 rounded bg-slate-100"
+          required></textarea>
+      </div>
+      <div class="flex justify-center items-center">
+        <button
+          class="bg-slate-700 rounded-3xl w-fit px-6 py-2 hover:bg-slate-600"
+          type="submit">Enviar</button
+        >
+      </div>
+    </form>
+  </div>
+</section>
+
+<style>
+  .reveal-section {
+    position: relative;
+    transform: translateY(30%);
+    opacity: 0;
+    transition: 0.5s all ease;
+  }
+
+  .reveal-section.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .reveal-section.slide-up {
+    animation: slideUp 0.5s forwards;
+  }
+</style>
+
+<script>
+  function reveal() {
+    var section = document.querySelector(".reveal-section");
+    if (!section) {
+      return; // Exit the function if section is null
+    }
+    var windowHeight = window.innerHeight;
+    var elementTop = section.getBoundingClientRect().top;
+    var elementVisible = 2;
+
+    if (elementTop < windowHeight - elementVisible) {
+      section.classList.add("active", "slide-up");
+    } else {
+      section.classList.remove("active", "slide-up");
+    }
+  }
+
+  window.addEventListener("scroll", reveal);
+
+
+
+
+  
+  document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var formData = new FormData(this);
+
+    fetch("./sendmail.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log(data);
+
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+
+      });
+  });
+</script>

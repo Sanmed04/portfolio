@@ -6,7 +6,7 @@ import JSON from "../../public/data.json";
 <section class="p-6">
   <h2 class="font-semibold text-center text-3xl pb-8">Proyectos recientes</h2>
   <div class="flex justify-center items-center">
-    <div class="flex flex-col gap-4 w-fit overflow-hidden">
+    <div class="flex flex-col gap-4 w-fit overflow-hidden lg:overflow-visible">
       {
         JSON.projects.map((project, index) => (
           <CardProjects
