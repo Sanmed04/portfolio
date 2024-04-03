@@ -1,7 +1,4 @@
 ---
-import { Form } from './Form.jsx';
-
-
 import "../styles/style.css";
 ---
 
@@ -9,7 +6,7 @@ import "../styles/style.css";
   <div class="flex justify-center items-center reveal-section">
     <form
       class="bg-slate-800 w-full max-w-[640px] text-slate-200 px-12 py-6 rounded-3xl gap-6 flex flex-col"
-      action="https://formsubmit.co/santiagomedina04@gmail.com" method="POST" target="_blank"
+      action="https://formsubmit.co/santiagomedina111204@gmail.com" method="POST"
     >
       <h3 class="font-semibold text-center text-2xl text-slate-50">
         Solicita tu presupuesto
@@ -83,4 +80,28 @@ import "../styles/style.css";
   }
 
   window.addEventListener("scroll", reveal);
+
+  // Vaciar values de form
+  window.onload = function () {
+    const nameInput = document.getElementById("name") as HTMLInputElement;
+    const emailInput = document.getElementById("email") as HTMLInputElement;
+    const subjectInput = document.getElementById("subject") as HTMLInputElement;
+    const messageInput = document.getElementById("message") as HTMLInputElement;
+
+    if (nameInput) {
+      nameInput.value = "";
+    }
+
+    if (emailInput) {
+      emailInput.value = "";
+    }
+
+    if (subjectInput) {
+      subjectInput.value = "";
+    }
+
+    if (messageInput) {
+      messageInput.value = "";
+    }
+  };
 </script>
