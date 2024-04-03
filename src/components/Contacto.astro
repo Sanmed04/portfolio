@@ -12,8 +12,13 @@ import IconsRedes from "./IconsRedes.astro";
   <div
     class="h-[240px] max-h-[240px] flex flex-col lg:flex-row justify-center items-center background gap-4 p-6"
   >
+
+
+
+
+
     <button
-      class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+      class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[280px] max-w-[400px] flex text-nowrap overflow-hidden gap-2 justify-center items-center"
       id="numeroBtn"
     >
       <div id="numeroIcon">
@@ -32,19 +37,21 @@ import IconsRedes from "./IconsRedes.astro";
             fill="transparent"></path></svg
         >
       </div>
-      <div class="w-fit">
-        <input
-          type="text"
-          disabled
-          class="bg-transparent pointer-events-none w-[140px] text-center"
-          id="numero"
-          value="+54 11 2248-8155"
-        />
-      </div>
+      <input
+        type="text"
+        disabled
+        class="bg-transparent pointer-events-none text-start text-xs lg:text-lg w-[100px] lg:w-full max-w-[150px]"
+        id="numero"
+        value="+54 11 2248-8155"
+      />
     </button>
 
+
+
+
+
     <button
-      class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+      class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[280px] max-w-[400px] flex justify-center items-center gap-2"
       id="mailBtn"
     >
       <div id="mailIcon">
@@ -62,19 +69,22 @@ import IconsRedes from "./IconsRedes.astro";
             fill="currentColor"></path></svg
         >
       </div>
-      <div>
-        <input
-          type="text"
-          disabled
-          class="bg-transparent pointer-events-none text-center"
-          id="mail"
-          value="contacto@medinasantiago.com"
-        />
-      </div>
+      <input
+        type="text"
+        disabled
+        class="bg-transparent pointer-events-none text-start text-xs lg:text-lg min-w-[200px] w-full max-w-[200px] lg:max-w-[300px]"
+        id="mail"
+        value="contacto@medinasantiago.com"
+      />
     </button>
 
+
+
+
+
+
     <button
-      class="bg-slate-300/[.20] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+      class="bg-slate-300/[.20] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[280px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
       id="direccionBtn"
     >
       <div id="direccionIcon">
@@ -92,16 +102,20 @@ import IconsRedes from "./IconsRedes.astro";
             fill="currentColor"></path></svg
         >
       </div>
-      <div>
-        <input
-          type="text"
-          disabled
-          class="bg-transparent pointer-events-none text-center"
-          id="direccion"
-          value="Buenos Aires, Argentina"
-        />
-      </div>
+      <input
+        type="text"
+        disabled
+        class="bg-transparent pointer-events-none text-start text-xs lg:text-lg max-w-[140px] w-full lg:max-w-[220px] lg:max-w-[300px]"
+        id="direccion"
+        value="Buenos Aires, Argentina"
+      />
     </button>
+
+
+
+
+
+
   </div>
 
   <div class="flex justify-between items-center">
@@ -137,7 +151,7 @@ import IconsRedes from "./IconsRedes.astro";
   const numeroBtn = document.getElementById("numeroBtn");
   const mailBtn = document.getElementById("mailBtn");
   const direccionBtn = document.getElementById("direccionBtn");
-  
+
   const numeroIcon = document.getElementById("numeroIcon");
   const mailIcon = document.getElementById("mailIcon");
   const direccionIcon = document.getElementById("direccionIcon");
@@ -151,6 +165,9 @@ import IconsRedes from "./IconsRedes.astro";
       numero?.classList.add("text-white");
       numeroBtn?.classList.add("cursor-not-allowed");
       numeroBtn?.classList.add("bg-slate-800");
+      numero?.classList.add("text-center");
+      numero?.classList.remove("text-start");
+
       setTimeout(function () {
         (numero as HTMLInputElement).value = "+54 11 2248-8155";
         numeroIcon?.classList.remove("hidden");
@@ -158,6 +175,9 @@ import IconsRedes from "./IconsRedes.astro";
         numero?.classList.remove("text-white");
         numeroBtn?.classList.remove("cursor-not-allowed");
         numeroBtn?.classList.remove("bg-slate-800");
+        numero?.classList.remove("text-center");
+        numero?.classList.add("text-start");
+
       }, 2200);
     });
   }
