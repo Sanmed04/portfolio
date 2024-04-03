@@ -12,9 +12,11 @@ import IconsRedes from "./IconsRedes.astro";
   <div
     class="h-[240px] max-h-[240px] flex flex-col lg:flex-row justify-center items-center background gap-4 p-6"
   >
-    <div class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+    <button
+      class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+      id="numeroBtn"
     >
-      <div>
+      <div id="numeroIcon">
         <svg
           data-testid="geist-icon"
           height="16"
@@ -30,11 +32,22 @@ import IconsRedes from "./IconsRedes.astro";
             fill="transparent"></path></svg
         >
       </div>
-      <p>+54 11 2248-8155</p>
-    </div>
-    <div class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px]  max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+      <div class="w-fit">
+        <input
+          type="text"
+          disabled
+          class="bg-transparent pointer-events-none w-[140px] text-center"
+          id="numero"
+          value="+54 11 2248-8155"
+        />
+      </div>
+    </button>
+
+    <button
+      class="bg-slate-300/[.30] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+      id="mailBtn"
     >
-      <div>
+      <div id="mailIcon">
         <svg
           data-testid="geist-icon"
           height="16"
@@ -49,11 +62,22 @@ import IconsRedes from "./IconsRedes.astro";
             fill="currentColor"></path></svg
         >
       </div>
-      <p>contacto@medinasantiago.com</p>
-    </div>
-    <div class="bg-slate-300/[.20] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px]  max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
-    >
       <div>
+        <input
+          type="text"
+          disabled
+          class="bg-transparent pointer-events-none text-center"
+          id="mail"
+          value="contacto@medinasantiago.com"
+        />
+      </div>
+    </button>
+
+    <button
+      class="bg-slate-300/[.20] rounded py-2 lg:py-4 px-4 w-1/3 min-w-[310px] max-w-[400px] flex justify-center items-center gap-2 text-nowrap overflow-hidden"
+      id="direccionBtn"
+    >
+      <div id="direccionIcon">
         <svg
           data-testid="geist-icon"
           height="16"
@@ -68,9 +92,18 @@ import IconsRedes from "./IconsRedes.astro";
             fill="currentColor"></path></svg
         >
       </div>
-      <p>Buenos Aires, Argentina</p>
-    </div>
+      <div>
+        <input
+          type="text"
+          disabled
+          class="bg-transparent pointer-events-none text-center"
+          id="direccion"
+          value="Buenos Aires, Argentina"
+        />
+      </div>
+    </button>
   </div>
+
   <div class="flex justify-between items-center">
     <hr
       class="w-[42%] border-y-1 relative bottom-4 border-slate-600 opacity-50"
@@ -95,3 +128,78 @@ import IconsRedes from "./IconsRedes.astro";
     );
   }
 </style>
+
+<script>
+  const numero = document.getElementById("numero");
+  const mail = document.getElementById("mail");
+  const direccion = document.getElementById("direccion");
+
+  const numeroBtn = document.getElementById("numeroBtn");
+  const mailBtn = document.getElementById("mailBtn");
+  const direccionBtn = document.getElementById("direccionBtn");
+  
+  const numeroIcon = document.getElementById("numeroIcon");
+  const mailIcon = document.getElementById("mailIcon");
+  const direccionIcon = document.getElementById("direccionIcon");
+
+  if (numeroBtn) {
+    numeroBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText((numero as HTMLInputElement).value);
+      (numero as HTMLInputElement).value = "Copiado!";
+      numeroIcon?.classList.add("hidden");
+      numero?.classList.add("font-bold");
+      numero?.classList.add("text-white");
+      numeroBtn?.classList.add("cursor-not-allowed");
+      numeroBtn?.classList.add("bg-slate-800");
+      setTimeout(function () {
+        (numero as HTMLInputElement).value = "+54 11 2248-8155";
+        numeroIcon?.classList.remove("hidden");
+        numero?.classList.remove("font-bold");
+        numero?.classList.remove("text-white");
+        numeroBtn?.classList.remove("cursor-not-allowed");
+        numeroBtn?.classList.remove("bg-slate-800");
+      }, 2200);
+    });
+  }
+
+  if (mailBtn) {
+    mailBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText((mail as HTMLInputElement).value);
+      (mail as HTMLInputElement).value = "Copiado!";
+      mailIcon?.classList.add("hidden");
+      mail?.classList.add("font-bold");
+      mail?.classList.add("text-white");
+      mailBtn?.classList.add("cursor-not-allowed");
+      mailBtn?.classList.add("bg-slate-800");
+      setTimeout(function () {
+        (mail as HTMLInputElement).value = "contacto@medinasantiago.com";
+        mailIcon?.classList.remove("hidden");
+        mail?.classList.remove("font-bold");
+        mail?.classList.remove("text-white");
+        mailBtn?.classList.remove("cursor-not-allowed");
+        mailBtn?.classList.remove("bg-slate-800");
+      }, 2200);
+    });
+  }
+
+  if (direccionBtn) {
+    direccionBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText((direccion as HTMLInputElement).value);
+      (direccion as HTMLInputElement).value = "Copiado!";
+      direccionIcon?.classList.add("hidden");
+      direccion?.classList.add("font-bold");
+      direccion?.classList.add("text-white");
+      direccionBtn?.classList.add("cursor-not-allowed");
+      direccionBtn?.classList.add("bg-slate-800");
+
+      setTimeout(function () {
+        (direccion as HTMLInputElement).value = "Buenos Aires, Argentina";
+        direccionIcon?.classList.remove("hidden");
+        direccion?.classList.remove("font-bold");
+        direccion?.classList.remove("text-white");
+        direccionBtn?.classList.remove("cursor-not-allowed");
+        direccionBtn?.classList.remove("bg-slate-800");
+      }, 2200);
+    });
+  }
+</script>
