@@ -1,0 +1,29 @@
+
+  .reveal-section {
+    position: relative;
+    transform: translateY(30%);
+    opacity: 0;
+    transition: 0.5s all ease;
+  }
+
+  .reveal-section.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .reveal-section.slide-up {
+    animation: slideUp 0.5s forwards;
+  }
+
+

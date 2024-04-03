@@ -1,12 +1,15 @@
 ---
+import { Form } from './Form.jsx';
 
+
+import "../styles/style.css";
 ---
 
 <section class="p-6">
   <div class="flex justify-center items-center reveal-section">
     <form
       class="bg-slate-800 w-full max-w-[640px] text-slate-200 px-12 py-6 rounded-3xl gap-6 flex flex-col"
-      action="https://formsubmit.co/santiagomedina111204@gmail.com" method="POST"
+      action="https://formsubmit.co/santiagomedina111204@gmail.com" method="POST" target="_blank"
     >
       <h3 class="font-semibold text-center text-2xl text-slate-50">
         Solicita tu presupuesto
@@ -16,7 +19,7 @@
         <input
           type="text"
           id="name"
-          name="name"
+          name="user_name"
           class="h-10 text-black ps-2 rounded bg-slate-100"
           required
         />
@@ -26,7 +29,7 @@
         <input
           type="email"
           id="email"
-          name="email"
+          name="user_email"
           class="h-10 text-black ps-2 rounded bg-slate-100"
           required
         />
@@ -47,46 +50,20 @@
           id="message"
           name="message"
           class="h-10 text-black ps-2 pt-2 min-h-10 max-h-32 rounded bg-slate-100"
-          required></textarea>
+          required
+        ></textarea>
       </div>
       <div class="flex justify-center items-center">
-        <button
+        <input
+          type="submit"
+          value="Send"
           class="bg-slate-700 rounded-3xl w-fit px-6 py-2 hover:bg-slate-600"
-          type="submit" >Enviar</button
-        >
+        ></input>
       </div>
     </form>
   </div>
 </section>
 
-<style>
-  .reveal-section {
-    position: relative;
-    transform: translateY(30%);
-    opacity: 0;
-    transition: 0.5s all ease;
-  }
-
-  .reveal-section.active {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  @keyframes slideUp {
-    0% {
-      transform: translateY(30%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .reveal-section.slide-up {
-    animation: slideUp 0.5s forwards;
-  }
-</style>
 
 <script>
   function reveal() {
