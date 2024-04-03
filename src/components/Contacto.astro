@@ -191,6 +191,8 @@ import IconsRedes from "./IconsRedes.astro";
       mail?.classList.add("text-white");
       mailBtn?.classList.add("cursor-not-allowed");
       mailBtn?.classList.add("bg-slate-800");
+      mail?.classList.add("text-center");
+      mail?.classList.remove("text-start");
       setTimeout(function () {
         (mail as HTMLInputElement).value = "contacto@medinasantiago.com";
         mailIcon?.classList.remove("hidden");
@@ -198,6 +200,8 @@ import IconsRedes from "./IconsRedes.astro";
         mail?.classList.remove("text-white");
         mailBtn?.classList.remove("cursor-not-allowed");
         mailBtn?.classList.remove("bg-slate-800");
+        mail?.classList.remove("text-center");
+        mail?.classList.add("text-start");
       }, 2200);
     });
   }
@@ -211,6 +215,8 @@ import IconsRedes from "./IconsRedes.astro";
       direccion?.classList.add("text-white");
       direccionBtn?.classList.add("cursor-not-allowed");
       direccionBtn?.classList.add("bg-slate-800");
+      direccion?.classList.add("text-center");
+      direccion?.classList.remove("text-start");
 
       setTimeout(function () {
         (direccion as HTMLInputElement).value = "Buenos Aires, Argentina";
@@ -219,6 +225,8 @@ import IconsRedes from "./IconsRedes.astro";
         direccion?.classList.remove("text-white");
         direccionBtn?.classList.remove("cursor-not-allowed");
         direccionBtn?.classList.remove("bg-slate-800");
+        direccion?.classList.remove("text-center");
+        direccion?.classList.add("text-start");
       }, 2200);
     });
   }
